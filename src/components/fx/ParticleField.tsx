@@ -13,7 +13,7 @@ export function ParticleField({ className }: { className?: string }) {
       interactivity: {
         events: {
           onHover: { enable: true, mode: "repulse" },
-          resize: true
+          resize: { enable: true }
         },
         modes: {
           repulse: { distance: 110, duration: 0.3 }
@@ -44,7 +44,7 @@ export function ParticleField({ className }: { className?: string }) {
 
   return (
     <div className={className} aria-hidden="true">
-      <Particles init={init} options={options} />
+      <Particles {...({ init, options } as any)} />
     </div>
   );
 }
